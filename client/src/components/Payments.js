@@ -20,4 +20,8 @@ class Payments extends Component {
   }
 }
 
+Payments.propTypes = {
+  handleToken: PropTypes.func.isRequired
+};
+
 export default connect(null, actions)(Payments);
