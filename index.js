@@ -28,6 +28,7 @@ app.use(passport.session());
 
 // routing
 require('./routes/authRoutes')(app);
+require('./routes/billingRoutes')(app);
 
 app.listen(PORT, () => {
   console.log(`listening on PORT:${PORT}`);
