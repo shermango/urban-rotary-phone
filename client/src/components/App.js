@@ -8,16 +8,16 @@ const Landing = () => <h2>Landing</h2>;
 
 const App = () => {
   return (
-    <React.Fragment>
+    <div className="container">
       <Router>
-        <div>
+        <React.Fragment>
           <Header />
           <Route exact path="/" component={Landing} />
           <Route exact path="/surveys" component={Dashboard} />
           <Route path="/surveys/new" component={SurveyNew} />
-        </div>
+        </React.Fragment>
       </Router>
-    </React.Fragment>
+    </div>
   );
 };
 
