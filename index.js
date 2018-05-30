@@ -1,4 +1,5 @@
 const morgan = require('morgan');
+const bodyParser = require('body-parser');
 const express = require('express');
 const keys = require('./config/keys');
 const mongoose = require('mongoose');
@@ -17,6 +18,7 @@ const app = express();
 
 // middlewares
 app.use(morgan('combined'));
+app.use(bodyParser.json());
 app.use(
   cookieSession({
     maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
