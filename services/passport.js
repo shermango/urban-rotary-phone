@@ -36,19 +36,19 @@ passport.use(
  * @param {function} done: the done callback - takes an err object and a return value of your choice -- we will return the user
  */
 
-function createUser(accessToken, refreshToken, profile, done) {
-  User.findOne({ googleId: profile.id }).then(user => {
-    // if already exists return the record
+async function createUser(accessToken, refreshToken, profile, done) {
+  let user;
+
+  try {
+    user = await User.findOne({ googleId: profile.id });
+
     if (user) {
-      done(null, user);
-    } else {
-      // else make the record
-      new User({
-        googleId: profile.id
-      })
-        .save()
-        .then(user => done(null, user))
-        .catch(e => console.log(e));
+      return done(null, user);
     }
-  });
+
+    user = await new User({ googleId: profile.id }).save();
+    return done(null, user);
+  } catch (e) {
+    console.log(e);
+  }
 }
