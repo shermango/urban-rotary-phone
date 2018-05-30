@@ -34,6 +34,10 @@ class Header extends Component {
   }
 }
 
+Header.propTypes = {
+  auth: PropTypes.oneOfType([PropTypes.object, PropTypes.bool])
+};
+
 function mapStateToProps({ auth }) {
   return { auth };
 }
