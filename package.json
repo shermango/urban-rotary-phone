@@ -1,7 +1,7 @@
 {
   "name": "fsr-server",
   "version": "1.0.0",
-  "description": "",
+  "description": "js is cool",
   "main": "index.js",
   "engines": {
     "node": "8.1.1",
@@ -12,10 +12,11 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "nodemon index.js",
     "client": "npm run start --prefix client",
-    "dev": "concurrently \"npm run server\"  \"npm run client\""
+    "dev": "concurrently \"npm run server\"  \"npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "keywords": [],
-  "author": "",
+  "author": "Sherman Chen",
   "license": "ISC",
   "prettier": {
     "singleQuote": true
