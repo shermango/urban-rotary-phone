@@ -15,9 +15,13 @@ mongoose.connect(keys.mongoURI);
 
 // init app
 const app = express();
+app.disable('x-powered-by');
 
 // middlewares
-app.use(morgan('combined'));
+if (process.env.NODE_ENV !== 'production') {
+  app.use(morgan('combined'));
+}
+
 app.use(bodyParser.json());
 app.use(
   cookieSession({
