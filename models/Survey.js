@@ -11,8 +11,8 @@ const RecipientSchema = './Recipient';
  * @field { Number } yes: the amount of responses to the survey that indicate yes
  * @field { Number } no: the amoubt of reponses to the survey that indicate no
  * @field { Foriegn Key } _user: the reference to the user, survey belongs to a particular user
- * @field { Date } dateSent: the date the survey was sent
- * @field { Date } lastResponded: the date of the last response from the recipient
+ * @field { Date } dateSent: the date the survey was sent, format UTC 2018-06-01T19:26:08.725Z
+ * @field { Date } lastResponded: the date of the last response from the recipient, format UTC 2018-06-01T19:26:08.725Z
  */
 
 const surveySchema = new Schema({
