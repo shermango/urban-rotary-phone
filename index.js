@@ -9,6 +9,7 @@ const passport = require('passport');
 // config
 const PORT = process.env.PORT || 5150;
 require('./models/User'); // load model before running passport service
+require('./models/Survey');
 require('./services/passport');
 
 mongoose.connect(keys.mongoURI);
