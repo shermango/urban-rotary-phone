@@ -4,9 +4,9 @@ const RecipientSchema = './Recipient';
 
 /**
  * surveySchema: represents the survey we send to users to fill
- * @field {String} title: the title of the survey
- * @field {String} body: the body of the survey
- * @field {String} subject: the subject of the survey
+ * @field {String} title: the title of the survey as seen in user app
+ * @field {String} body: the body of the survey as seen in email
+ * @field {String} subject: the subject of the survey as seen in email
  * @field { [RecipientSchema] } recipients: a sub collection of users who have received this survey
  * @field { Number } yes: the amount of responses to the survey that indicate yes
  * @field { Number } no: the amoubt of reponses to the survey that indicate no
