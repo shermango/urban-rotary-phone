@@ -1,4 +1,3 @@
-const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const express = require('express');
 const keys = require('./config/keys');
@@ -20,6 +19,7 @@ app.disable('x-powered-by');
 
 // middlewares
 if (process.env.NODE_ENV !== 'production') {
+  const morgan = require('morgan');
   // dev logging, in prod we just use heroku logs
   app.use(morgan('combined'));
 }
