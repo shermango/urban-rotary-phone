@@ -18,7 +18,7 @@ class Header extends Component {
         );
       default:
         return (
-          <React.Fragment>
+          <div>
             <li>
               <Payments />
             </li>
@@ -28,7 +28,7 @@ class Header extends Component {
             <li>
               <a href="/api/logout">Logout</a>
             </li>
-          </React.Fragment>
+          </div>
         );
     }
   }
@@ -58,4 +58,7 @@ function mapStateToProps({ auth }) {
   return { auth };
 }
 
-export default connect(mapStateToProps, {})(Header);
+export default connect(
+  mapStateToProps,
+  {}
+)(Header);
