@@ -14,6 +14,14 @@ module.exports = app => {
     res.send('Thanks for voting!');
   });
 
+  app.get('/api/surveys', requireLogin, async (req, res) => {
+    const surveys = await Survey.find({ _user: req.user.id }).select({
+      recipients: false
+    });
+
+    res.send(surveys);
+  });
+
   app.post('/api/surveys/webhooks', (req, res) => {
     const p = new Path('/api/surveys:surveyId/:choice');
     // map over, compact/remove undefineds, then filter uniquely by email or surveyId
