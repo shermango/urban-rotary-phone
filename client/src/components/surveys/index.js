@@ -1,3 +1,4 @@
 import SurveyNew from './SurveyNew';
+import SurveyList from './SurveyList';
 
-export { SurveyNew };
+export { SurveyNew, SurveyList };
