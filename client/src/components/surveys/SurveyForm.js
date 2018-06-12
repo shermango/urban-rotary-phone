@@ -41,7 +41,7 @@ class SurveyForm extends Component {
 function validate(values) {
   let errors = {};
 
-  errors.emails = validateEmails(values.emails || '');
+  errors.recipients = validateEmails(values.recipients || '');
 
   formFields.forEach(({ name }) => {
     if (!values[name]) {
