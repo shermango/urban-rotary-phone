@@ -3,12 +3,36 @@ const requireLogin = require('../middlewares/requireLogin');
 const requireCredits = require('../middlewares/requireCredits');
 const Mailer = require('../services/Mailer');
 const surveyTemplate = require('../services/emailTemplates/surveyTemplate');
+const _ = require('lodash');
+const Path = require('path-parser');
+const { URL } = require('url');
 
 const Survey = mongoose.model('surveys');
 
 module.exports = app => {
   app.get('/api/surveys/thanks', (req, res) => {
     res.send('Thanks for voting!');
+  });
+
+  app.post('/api/surveys/webhooks', (req, res) => {
+    const p = new Path('/api/surveys:surveyId/:choice');
+    // map over, compact/remove undefineds, then filter uniquely by email or surveyId
+    const events = _
+      .chain(req.body)
+      .map(({ email, url }) => {
+        const match = p.test(new URL(url).pathname);
+
+        if (match) {
+          return {
+            email,
+            surveyId: match.surveyId,
+            choice: match.choice
+          };
+        }
+      })
+      .compact()
+      .uniqBy('email', 'surveyId')
+      .value();
   });
 
   app.post('/api/surveys', requireLogin, requireCredits, async (req, res) => {
