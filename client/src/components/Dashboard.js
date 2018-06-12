@@ -5,7 +5,7 @@ import { SurveyList } from './surveys';
 const Dashboard = () => {
   return (
     <div>
-      <h2>Dashboard</h2>
+      <h2>Dashboard, current in dev mode</h2>
       <SurveyList />
       <div className="fixed-action-btn">
         <Link to="/surveys/new" className="btn-floating btn-large red">
